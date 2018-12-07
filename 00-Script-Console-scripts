@@ -1,4 +1,7 @@
 
+Jenkins core API : https://javadoc.jenkins.io/
+----------------------------------------------
+
 def job = Jenkins.instance.getItemByFullName("pipeline-with-maven")
 
 // Get last build number of the JOB
@@ -15,6 +18,7 @@ new File(job.lastBuild.getArtifactManager().root().toURI()).eachFileRecurse(groo
         }
 
 ----------------------------------------------------------------------
+
 
 
 
