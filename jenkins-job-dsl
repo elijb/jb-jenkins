@@ -1,4 +1,34 @@
 
+Job DSL PLUGIN
+- developer udates script locally
+- developer pushes changes
+- SCM change triggers seed job (configured manually)
+- seed job runs DSL
+- seed job updates/creates/deletes
+
+1. Install Job-DSl plugin
+2. Freestyle project
+3. add step "process Job DSL"
+
+choose: use the provided DSL script:
+
+10.times {
+  job('job' + it) {}
+}
+
+-------------------------------------------------------
+
+JENKINS JOB DSL PLAYGROUND
+http://job-dsl.herokuapp.com/
+
+-------------------------------------------------------
+
+JENKINS JOB DSL COMMANDS
+https://github.com/jenkinsci/job-dsl-plugin/wiki/Job-DSL-Commands
+
+##############################################################
+
+
 Creating a job for each branch in Git
 -------------------------------------
 def project = 'elijb/jenkins'
