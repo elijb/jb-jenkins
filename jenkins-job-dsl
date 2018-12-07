@@ -1,8 +1,24 @@
 
+Creating a job for each branch in Git
+-------------------------------------
+def project = 'elijb/jenkins'
+def branchApi = new URL("https://api.github.com/repos/${project}/branches")
+def branches = new groovy.json.JsonSlurper().parse(branchApi.newReader())
+branch.each {
+  def branchName = it.name
+  def jobName = "${project}-${brnachName}".replaceAll('/','-')
+  job(name)
+    scm {
+      git("git://github.com/${project}.git", branchName)
+    }
+    steps {
+      maven("test -Dproject.name=${project}/${branchName}")
+    }
+}
+
+
+Jenkins JOB DSL URLs:
 https://wiki.jenkins.io/display/JENKINS/Job+DSL+Plugin
 https://github.com/jenkinsci/job-dsl-plugin/wiki
 https://github.com/jenkinsci/job-dsl-plugin/wiki/Tutorial---Using-the-Jenkins-Job-DSL
 http://job-dsl.herokuapp.com/
-
-
-
