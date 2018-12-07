@@ -1,0 +1,20 @@
+
+def job = Jenkins.instance.getItemByFullName("pipeline-with-maven")
+
+// Get last build number of the JOB
+println "LAST BUILD:" + job.lastBuild
+
+// Print all JOB builds
+job.builds.each {
+    println "${it}"
+}
+
+// Get last build archived artifact
+new File(job.lastBuild.getArtifactManager().root().toURI()).eachFileRecurse(groovy.io.FileType.FILES) {archivedFile->
+            println archivedFile.name
+        }
+
+----------------------------------------------------------------------
+
+
+
