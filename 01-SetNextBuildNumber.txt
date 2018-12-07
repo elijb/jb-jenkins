@@ -1,0 +1,26 @@
+
+
+OPTION 1
+--------
+Install Plugin: next build number
+
+
+
+OPTION 2
+--------
+groovy
+Manage Jenkins => Script Console:
+Jenkins.instance.getItemByFullName("JOB_NAME").updateNextBuildNumber(45)
+
+
+
+OPTION 3
+--------
+OR (from JOB pipeline plugin)
+
+node {
+    def job = Jenkins.instance.getItemByFullName("${JOB_NAME}")
+    job.nextBuildNumber = 100
+    job.save()
+}
+

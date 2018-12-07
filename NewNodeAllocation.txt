@@ -1,0 +1,50 @@
+
+http://18.184.41.124:8080/
+
+# update sshd config on agent machine
+
+sudo vi /etc/ssh/sshd_config
+
+PermitRootLogin yes
+# Only allow root to run commands over ssh, no shell
+#PermitRootLogin forced-commands-only
+…
+# To disable tunneled clear text passwords, change to no here!
+PasswordAuthentication yes
+#PermitEmptyPasswords no
+# EC2 uses keys for remote access
+#PasswordAuthentication no
+
+Reload the sshd settings:
+sudo service sshd reload
+
+Select a password for root:
+sudo passwd root
+
+------------------------------------------------
+
+Manage Jenkins => Manage Nodes
+
+Choose New Node => give it a name (agent01) => Permanent Agent
+
+Remote Directory Name => /var/lib/agent01
+
+# of executors => 2
+
+Labels => centos
+
+Launch slave agents via SSH => Add credentials
+
+Launch slave agents via JNLP => Manage Jenkins => Configure Global Security => Agents, JNLP (fixed: 5000)
+--------------------------------------------
+
+
+wget http://18.184.41.124:8080/jnlpJars/agent.jar
+
+java -jar agent.jar -jnlpUrl http://18.184.41.124:8080/computer/slave02/slave-agent.jnlp -workDir "/var/lib/agent02"
+
+
+
+
+
+

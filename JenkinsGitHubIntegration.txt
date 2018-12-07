@@ -1,0 +1,19 @@
+1. install GitHub Integration Plugin
+2. create freestyle job
+3. check GitHub project => insert githyb URL => https://github.com/elijb/jenkins
+4. configure git repository (SCM) => insert repo URL => https://github.com/elijb/jenkins.git
+5. Navigate to build triggers => choose "Github hook trigger for GITscm polling"
+6. save the job
+7. got to github project and select "settings"
+8. open the "webhooks" section => click on "Add webhook"
+9. payload URL => http://JENKINS_IP:8080/github-webhook/
+10. content type => application-json
+11. save the webhook
+
+echo "COMMIT_ID: ${GIT_COMMIT}"
+token=9aef246338d9cf26bec48082921eeaab6c422f8d
+git tag v1.0.${BUILD_NUMBER} ${GIT_COMMIT}
+git push https://${token}@github.com/elijb/jenkins.git v1.0.${BUILD_NUMBER}
+
+* to generate token : https://github.com/settings/tokens
+

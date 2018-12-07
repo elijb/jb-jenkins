@@ -1,0 +1,16 @@
+OPTION 1
+--------
+Freestyle job with "build_name_setter" plugin
+
+
+
+OPTION 2
+-------
+Pipeline plugin:
+
+node {
+    currentBuild.displayName = "${BUILD_NUMBER}"
+    currentBuild.description = "Build description."
+    println("${JOB_NAME}")
+    echo "Hello. Build number is ${BUILD_NUMBER}"
+}

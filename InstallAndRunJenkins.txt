@@ -1,0 +1,19 @@
+# Method 1
+sudo yum -y update
+sudo yum install -y wget epel-release java-1.8.0-openjdk.x86_64 git maven
+sudo cp /etc/profile /etc/profile_backup
+sudo echo 'export JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk' | sudo tee -a /etc/profile
+sudo echo 'export JRE_HOME=/usr/lib/jvm/jre' | sudo tee -a /etc/profile
+sudo source /etc/profile
+sudo pushd ~
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+sudo yum -y install jenkins
+sudo systemctl start jenkins.service
+sudo systemctl enable jenkins.service
+sudo firewall-cmd --zone=public --permanent --add-port=8080/tcp
+sudo firewall-cmd --reload
+popd
+
+# Method 2 (WAR file inwstallation)
+nohup java -jar jenkins.war &
