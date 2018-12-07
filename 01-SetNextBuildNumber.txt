@@ -16,6 +16,9 @@ Jenkins.instance.getItemByFullName("JOB_NAME").updateNextBuildNumber(45)
 
 OPTION 3
 --------
+To protect Jenkins from execution of malicious scripts, Groovy scripts are executed in a Groovy Sandbox that limits what internal APIs are accessible.
+Administrators can then use the "In-process Script Approval" page, provided by the Script Security plugin, to manage which unsafe methods, if any, should be allowed in the Jenkins environment.
+
 http://18.184.184.64:8080/scriptApproval/
 
 field hudson.model.Job nextBuildNumber
