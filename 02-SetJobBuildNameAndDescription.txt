@@ -1,6 +1,6 @@
 OPTION 1
 --------
-Freestyle job with "build_name_setter" plugin
+Freestyle job with "build-name-setter" plugin
 
 
 
