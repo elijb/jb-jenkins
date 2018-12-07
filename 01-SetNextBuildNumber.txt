@@ -19,6 +19,7 @@ OPTION 3
 http://18.184.184.64:8080/scriptApproval/
 
 field hudson.model.Job nextBuildNumber
+method hudson.model.Saveable save
 method jenkins.model.Jenkins getItemByFullName java.lang.String
 staticMethod jenkins.model.Jenkins getInstance
 
