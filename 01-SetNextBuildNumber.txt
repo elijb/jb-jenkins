@@ -16,7 +16,11 @@ Jenkins.instance.getItemByFullName("JOB_NAME").updateNextBuildNumber(45)
 
 OPTION 3
 --------
-OR (from JOB pipeline plugin)
+http://18.184.184.64:8080/scriptApproval/
+
+field hudson.model.Job nextBuildNumber
+method jenkins.model.Jenkins getItemByFullName java.lang.String
+staticMethod jenkins.model.Jenkins getInstance
 
 node {
     def job = Jenkins.instance.getItemByFullName("${JOB_NAME}")
