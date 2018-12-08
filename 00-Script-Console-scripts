@@ -23,6 +23,24 @@ counter = counter + 5
 println "counter value is $counter"
 println "counter value is ${counter + 1}"
 
+5. Groovy loops
+---------------
+def list = [0, 1, 2, 3, 4]
+
+// Classic for loop.
+for (i = 0; i < 5; i++) {
+  println list[i]
+}
+
+//iterate over a list
+list.each {
+	println list[it]
+}
+
+//iterate over a list
+5.times{
+  println it
+}
 
 
 5. Jenkins core API : https://javadoc.jenkins.io/
