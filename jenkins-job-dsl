@@ -42,15 +42,16 @@ Creating a job for each branch in Git
 def project = 'elijb/jenkins'
 def branchApi = new URL("https://api.github.com/repos/${project}/branches")
 def branches = new groovy.json.JsonSlurper().parse(branchApi.newReader())
-branch.each {
-  def branchName = it.name
-  def jobName = "${project}-${brnachName}".replaceAll('/','-')
-  job(name)
-    scm {
-      git("git://github.com/${project}.git", branchName)
-    }
-    steps {
-      maven("test -Dproject.name=${project}/${branchName}")
+branches.each {
+    def branchName = it.name
+    def jobName = "DSL-${project}-${branchName}".replaceAll('/','-')
+    job(jobName) {
+        scm {
+            git("git://github.com/${project}.git", branchName)
+        }
+        steps {
+            maven("test -Dproject.name=${project}/${branchName}")
+        }
     }
 }
 
