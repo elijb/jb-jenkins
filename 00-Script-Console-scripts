@@ -12,11 +12,6 @@ job.builds.each {
     println "${it}"
 }
 
-// Get last build archived artifact
-new File(job.lastBuild.getArtifactManager().root().toURI()).eachFileRecurse(groovy.io.FileType.FILES) {archivedFile->
-            println archivedFile.name
-        }
-
 ----------------------------------------------------------------------
 
 
