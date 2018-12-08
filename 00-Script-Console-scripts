@@ -1,4 +1,11 @@
 
+Groovy VS JAVA
+--------------
+// System.out.println("Hello World");
+println("Hello World");
+println("Hello World")
+println "Hello World"
+
 Groovy - Arithmetic operations
 --------------
 println 1+2
