@@ -1,4 +1,4 @@
-
+Manage Jenkins => Script Console
 
 1. DSL (domain specific language) vs GPL (general purpose programming language)
 
@@ -42,8 +42,21 @@ list.each {
   println it
 }
 
+6. Groovy - functions
+---------------------
+def getTextMessage()
+{
+    a1 = "Thanks"
+    a2 = "for your patience"
+    return "${a1} ${a2}"
+    //return "${a1 + a2}"
+    //return a1 + a2
+} 
 
-5. Jenkins core API : https://javadoc.jenkins.io/
+getTextMessage()
+
+
+6. Jenkins core API : https://javadoc.jenkins.io/
 ----------------------------------------------
 
 def job = Jenkins.instance.getItemByFullName("pipeline-with-maven")
