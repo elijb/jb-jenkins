@@ -1,4 +1,20 @@
 
+Groovy - Arithmetic operations
+--------------
+println 1+2
+println "1"+"2"
+println 1+"2"
+
+Groovy - Working with variables
+----------------------
+def counter = 0
+counter = counter + 5
+//counter += 5
+println "counter value is $counter"
+println "counter value is ${counter + 1}"
+
+
+
 Jenkins core API : https://javadoc.jenkins.io/
 ----------------------------------------------
 
