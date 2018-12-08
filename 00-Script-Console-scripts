@@ -1,18 +1,21 @@
 
-Groovy VS JAVA
+
+1. DSL (domain specific language) vs GPL (general purpose programming language)
+
+2. Groovy VS JAVA
 --------------
 // System.out.println("Hello World");
 println("Hello World");
 println("Hello World")
 println "Hello World"
 
-Groovy - Arithmetic operations
+3. Groovy - Arithmetic operations (dynamic language)
 --------------
 println 1+2
 println "1"+"2"
 println 1+"2"
 
-Groovy - Working with variables
+4. Groovy - Working with variables
 ----------------------
 def counter = 0
 counter = counter + 5
@@ -22,7 +25,7 @@ println "counter value is ${counter + 1}"
 
 
 
-Jenkins core API : https://javadoc.jenkins.io/
+5. Jenkins core API : https://javadoc.jenkins.io/
 ----------------------------------------------
 
 def job = Jenkins.instance.getItemByFullName("pipeline-with-maven")
