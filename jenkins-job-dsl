@@ -1,6 +1,17 @@
 
+The Jenkins "Job DSL / Plugin" is made up of two parts: 
+1. Domain Specific Language (DSL) itself that allows users to describe jobs using a Groovy-based language, 
+2. A Jenkins plugin which manages the scripts and the updating of the Jenkins jobs which are created and maintained as a result.
 
+---------------------------------------------
+Jenkins Job DSL API
 https://jenkinsci.github.io/job-dsl-plugin/#
+
+JENKINS JOB DSL PLAYGROUND
+http://job-dsl.herokuapp.com/
+
+JENKINS JOB DSL COMMANDS
+https://github.com/jenkinsci/job-dsl-plugin/wiki/Job-DSL-Commands
 
 ---------------------------------------------
 
@@ -22,14 +33,6 @@ choose: use the provided DSL script:
 }
 
 -------------------------------------------------------
-
-JENKINS JOB DSL PLAYGROUND
-http://job-dsl.herokuapp.com/
-
--------------------------------------------------------
-
-JENKINS JOB DSL COMMANDS
-https://github.com/jenkinsci/job-dsl-plugin/wiki/Job-DSL-Commands
 
 ##############################################################
 
