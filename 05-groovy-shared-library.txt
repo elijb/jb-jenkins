@@ -1,0 +1,10 @@
+create a directory called vars.
+This will hold your custom steps. 
+Each of them will be a different .groovy file underneath your vars directory, e.g.:
+
+vars/
+    deployApplication.groovy
+    parseFile.groovy
+    sayHello.groovy
+    readSystemCredentials.groovy
+    doCodeReview.groovy
