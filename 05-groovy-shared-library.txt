@@ -1,4 +1,8 @@
-create a directory called vars.
+
+Documantation: https://jenkins.io/doc/book/pipeline/shared-libraries/
+Example: https://github.com/monodot/pipeline-library-demo
+
+1. create a directory called vars under specific GIT repo.
 This will hold your custom steps. 
 Each of them will be a different .groovy file underneath your vars directory, e.g.:
 
@@ -8,3 +12,40 @@ vars/
     sayHello.groovy
     readSystemCredentials.groovy
     doCodeReview.groovy
+
+Each of your custom steps is a different .groovy file inside your vars/ directory. 
+In Jenkins terminology, these are called Global Variables, which is why they are located inside vars/
+
+
+2. Add a custom step
+Create a file for your custom step, and fill in the code. For example, a simple greeting function would look like this:
+
+#!/usr/bin/env groovy
+
+def call(String name = 'human') {
+  echo "Hello, ${name}."
+}
+
+
+3. Set up the library in Jenkins
+
+In Jenkins, go to Manage Jenkins → Configure System. Under Global Pipeline Libraries
+add a library with the following settings:
+
+Name: pipeline-library-demo
+Default version: Specify a Git reference (branch or commit SHA), e.g. master
+Retrieval method: Modern SCM
+Select the Git type
+Project repository: https://github.com/monodot/pipeline-library-demo.git
+
+4. Use the library in a pipeline
+To use the shared library in a pipeline, you just add @Library('your-library-name') to the top of your pipeline definition, or Jenkinsfile. Then call your step by name, e.g. sayHello
+
+@Library('pipeline-library-demo')_
+
+stage('Demo') {
+    echo 'Hello world'
+    sayHello 'Dave'
+}
+
+NOTE: The underscore (_) is not a typo! You need this underscore if the line immediately after the @Library annotation is not an import statement.
